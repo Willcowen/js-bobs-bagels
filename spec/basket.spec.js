@@ -18,13 +18,14 @@ describe("Basket", () => {
   it("Add one bagel to basket", () => {
     //setup 
     const expected = [{
-      id: 1,
-      type: "Blueberry",
-      price: 2.99
-     }
+      "sku": "BGLO",
+      "price": 0.49,
+      "name": "Bagel",
+      "variant": "Onion"
+    }
     ]
     //execute 
-    basket.addBagelToBasket("Blueberry")
+    basket.addBagelToBasket("Onion")
     const result = basket.getBasket()
     //verify
     expect(result).toEqual(expected);
@@ -32,19 +33,21 @@ describe("Basket", () => {
   it("Add two bagels to basket", () => {
     //setup 
     const expected = [{
-      id: 1,
-      type: "Chocolate Chip",
-      price: 2.99
-     },
-     {
-      id: 2,
-      type: "Cinnamon",
-      price: 2.99
-     }
+      "sku": "BGLO",
+      "price": 0.49,
+      "name": "Bagel",
+      "variant": "Onion"
+    },
+    {
+      "sku": "BGLP",
+      "price": 0.39,
+      "name": "Bagel",
+      "variant": "Plain"
+    },
     ]
     //execute 
-    basket.addBagelToBasket("Chocolate Chip", 2.99)
-    basket.addBagelToBasket("Cinnamon", 2.99)
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Plain")
     const result = basket.getBasket()
     //verify
     expect(result).toEqual(expected);
@@ -52,15 +55,16 @@ describe("Basket", () => {
   it("Remove one bagel from basket", () => {
     //setup 
     const expected = [{
-      id: 1,
-      type: "remaining bagel",
-      price: 2.99
-     }
+      "sku": "BGLP",
+      "price": 0.39,
+      "name": "Bagel",
+      "variant": "Plain"
+    }
     ]
-    basket.addBagelToBasket("remaining bagel")
-    basket.addBagelToBasket("Bagel to Remove")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Blueberry")
     //execute 
-    basket.removeBagelFromBasket("Bagel to Remove")
+    basket.removeBagelFromBasket("Blueberry")
     const result = basket.getBasket()
     //verify
     expect(result).toEqual(expected);
@@ -68,19 +72,20 @@ describe("Basket", () => {
   it("Remove multiple bagels from basket", () => {
     //setup 
     const expected = [{
-      id: 1,
-      type: "remaining bagel",
-      price: 2.99,
-     }
+      "sku": "BGLB",
+      "price": 0.49,
+      "name": "Bagel",
+      "variant": "Blueberry"
+    }
     ]
-    basket.addBagelToBasket("remaining bagel")
-    basket.addBagelToBasket("Bagel to Remove 1")
-    basket.addBagelToBasket("Bagel to Remove 2")
-    basket.addBagelToBasket("Bagel to Remove 3")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Garlic")
+    basket.addBagelToBasket("Blueberry")
     //execute 
-    basket.removeBagelFromBasket("Bagel to Remove 1")
-    basket.removeBagelFromBasket("Bagel to Remove 2")
-    basket.removeBagelFromBasket("Bagel to Remove 3")
+    basket.removeBagelFromBasket("Onion")
+    basket.removeBagelFromBasket("Plain")
+    basket.removeBagelFromBasket("Garlic")
     const result = basket.getBasket()
     //verify
     expect(result).toEqual(expected);
@@ -96,63 +101,69 @@ describe("Basket", () => {
     //verify
     expect(result).toEqual(expected);
   });
-  it("Adding items to a full basket", () => {
+  it("Adding items to a full basket returns error", () => {
     //setup 
-    const expected = "Basket is full!"
-    basket.addBagelToBasket("Bagel 1")
-    basket.addBagelToBasket("Bagel 2")
-    basket.addBagelToBasket("Bagel 3")
-    basket.addBagelToBasket("Bagel 4")
+    basket.addBagelToBasket("Blueberry")
+    basket.addBagelToBasket("Garlic")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Onion")
     //execute    
-    const result = basket.addBagelToBasket("This bagel won't fit in my small basket")
+    const result = basket.addBagelToBasket("Asiago")
     //verify
-    expect(result).toEqual(expected);
+    expect(result).toEqual("Basket is full!");
   });
   it("overfilling my basket results in a full basket", () => {
     //setup 
     const expected = [{
-      id: 1,
-      type: "Bagel 1",
-      price: 2.99,
-     },
-     {
-      id: 2,
-      type: "Bagel 2",
-      price: 2.99,
-     },
-     {
-      id: 3,
-      type: "Bagel 3",
-      price: 2.99,
-     },
-     {
-      id: 4,
-      type: "Bagel 4",
-      price: 2.99,
-     }
+      "sku": "BGLS",
+      "price": 0.49,
+      "name": "Bagel",
+      "variant": "Sesame"
+    },
+    {
+      "sku": "BGLA",
+      "price": 0.99,
+      "name": "Bagel",
+      "variant": "Asiago"
+    },
+    {
+      "sku": "BGLG",
+      "price": 0.99,
+      "name": "Bagel",
+      "variant": "Garlic",
+    },
+    {
+      "sku": "BGLW",
+      "price": 0.99,
+      "name": "Bagel",
+      "variant": "Whole Wheat",
+    }
     ]
-    basket.addBagelToBasket("Bagel 1")
-    basket.addBagelToBasket("Bagel 2")
-    basket.addBagelToBasket("Bagel 3")
-    basket.addBagelToBasket("Bagel 4")
+    basket.addBagelToBasket("Sesame")
+    basket.addBagelToBasket("Asiago")
+    basket.addBagelToBasket("Garlic")
+    basket.addBagelToBasket("Whole Wheat")
     //execute
-    basket.addBagelToBasket("Bagel 5") 
+    basket.addBagelToBasket("Blueberry") // blueberry should not be added to basket.
     const result = basket.getBasket()
     //verify
     expect(result).toEqual(expected);
+    expect(basket.getBasket().length).toEqual(4)
   });
   it("Adding two of the same bagel to my basket", () => {
     //setup 
     const expected = [{
-      id: 1,
-      type: "Blueberry",
-      price: 2.99,
-     },
-     {
-      id: 2,
-      type: "Blueberry",
-      price: 2.99,
-     },
+      "sku": "BGLB",
+      "price": 0.49,
+      "name": "Bagel",
+      "variant": "Blueberry"
+    },
+    {
+      "sku": "BGLB",
+      "price": 0.49,
+      "name": "Bagel",
+      "variant": "Blueberry"
+    }
     ]
     //execute 
     basket.addBagelToBasket("Blueberry")
@@ -161,55 +172,60 @@ describe("Basket", () => {
     //verify
     expect(result).toEqual(expected);
   });
-  it("Remove a bagel from basket that doesn't exist", () => {
+  it("Remove a bagel that doesn't exist returns an error.", () => {
     //setup 
-    const expected = "This Bagel doesn't exist"
-    basket.addBagelToBasket("Cinnamon")
+    basket.addBagelToBasket("Plain")
     //execute 
     const result = basket.removeBagelFromBasket("sdfsdf")
     //verify
-    expect(result).toEqual(expected);
+    expect(result).toEqual("This Bagel doesn't exist");
   });
   it("Manager increasing the size of basket", () => {
     //setup 
     const expected = [{
-      id: 1,
-      type: "Bagel 1",
-      price: 2.99,
-     },
-     {
-      id: 2,
-      type: "Bagel 2",
-      price: 2.99,
-     },
-     {
-      id: 3,
-      type: "Bagel 3",
-      price: 2.99,
-     },
-     {
-      id: 4,
-      type: "Bagel 4",
-      price: 2.99,
-     },
-     {
-      id: 5,
-      type: "Bagel 5",
-      price: 2.99,
-     },
-     {
-      id: 6,
-      type: "Bagel 6",
-      price: 2.99,
-     }
+      "sku": "BGLP",
+      "price": 0.39,
+      "name": "Bagel",
+      "variant": "Plain"
+    },
+    {
+      "sku": "BGLB",
+      "price": 0.49,
+      "name": "Bagel",
+      "variant": "Blueberry"
+    },
+    {
+      "sku": "BGLS",
+      "price": 0.49,
+      "name": "Bagel",
+      "variant": "Sesame"
+    },
+    {
+      "sku": "BGLA",
+      "price": 0.99,
+      "name": "Bagel",
+      "variant": "Asiago"
+    },
+    {
+      "sku": "BGLG",
+      "price": 0.99,
+      "name": "Bagel",
+      "variant": "Garlic",
+    },
+    {
+      "sku": "BGLW",
+      "price": 0.99,
+      "name": "Bagel",
+      "variant": "Whole Wheat",
+    },
     ]
     basket.basketSize = 6
-    basket.addBagelToBasket("Bagel 1")
-    basket.addBagelToBasket("Bagel 2")
-    basket.addBagelToBasket("Bagel 3")
-    basket.addBagelToBasket("Bagel 4")
-    basket.addBagelToBasket("Bagel 5")
-    basket.addBagelToBasket("Bagel 6")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Blueberry")
+    basket.addBagelToBasket("Sesame")
+    basket.addBagelToBasket("Asiago")
+    basket.addBagelToBasket("Garlic")
+    basket.addBagelToBasket("Whole Wheat")
     //execute 
     const result = basket.getBasket()
     //verify
@@ -217,8 +233,8 @@ describe("Basket", () => {
   });
   it("Getting the price of one Bagel in my basket.", () => {
     //setup 
-    const expected = 2.99
-    basket.addBagelToBasket("Bagel 1")
+    const expected = 0.99
+    basket.addBagelToBasket("Asiago")
     //execute 
     const result = basket.getTotalOfBasket()
     //verify
@@ -226,12 +242,12 @@ describe("Basket", () => {
   });
   it("Getting the price of multiple Bagels in my basket.", () => {
     //setup 
-    const expected = 2.99 + 2.99 + 2.99 
-    basket.addBagelToBasket("Bagel 1")
-    basket.addBagelToBasket("Bagel 2")
-    basket.addBagelToBasket("Bagel 3")
-    basket.addBagelToBasket("Bagel 4")
-    basket.removeBagelFromBasket("Bagel 4")
+    const expected = 0.39 + 0.49 + 0.49  
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Blueberry")
+    basket.addBagelToBasket("Sesame")
+    basket.addBagelToBasket("Asiago")
+    basket.removeBagelFromBasket("Asiago")
     //execute 
     const result = basket.getTotalOfBasket()
     //verify
@@ -241,7 +257,7 @@ describe("Basket", () => {
     //setup 
     const expected = {
       "sku": "BGLO",
-      "price": "0.49",
+      "price": 0.49,
       "name": "Bagel",
       "variant": "Onion"
     }

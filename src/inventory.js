@@ -1,54 +1,45 @@
 const inventory = [
     {
       "sku": "BGLO",
-      "price": "0.49",
+      "price": 0.49,
       "name": "Bagel",
       "variant": "Onion"
     },
     {
       "sku": "BGLP",
-      "price": "0.39",
+      "price": 0.39,
       "name": "Bagel",
       "variant": "Plain"
     },
     {
-      "sku": "BGLE",
-      "price": "0.49",
+      "sku": "BGLB",
+      "price": 0.49,
       "name": "Bagel",
-      "variant": "Everything"
+      "variant": "Blueberry"
     },
     {
       "sku": "BGLS",
-      "price": "0.49",
+      "price": 0.49,
       "name": "Bagel",
       "variant": "Sesame"
     },
     {
-      "sku": "COF",
-      "price": "0.99",
+      "sku": "BGLA",
+      "price": 0.99,
       "name": "Bagel",
-      "variant": ""
+      "variant": "Asiago"
     },
     {
-      "sku": "BGSE",
-      "price": "2.99",
-      "name": "Bagel Sandwich",
-      "variant": "Everything",
-      "fillings": [
-        "Bacon",
-        "Egg",
-        "Cheese"
-      ]
+      "sku": "BGLG",
+      "price": 0.99,
+      "name": "Bagel",
+      "variant": "Garlic",
     },
     {
-      "sku": "BGSS",
-      "price": "4.99",
-      "name": "Bagel Sandwich",
-      "variant": "Sesame",
-      "fillings": [
-        "Cream Cheese",
-        "Smoked Salmon"
-      ]
+      "sku": "BGLW",
+      "price": 0.99,
+      "name": "Bagel",
+      "variant": "Whole Wheat",
     },
   ]
   module.exports = inventory;
