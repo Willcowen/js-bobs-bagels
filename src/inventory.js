@@ -41,5 +41,17 @@ const inventory = [
       "name": "Bagel",
       "variant": "Whole Wheat",
     },
+    {
+      "sku": "BGLE",
+      "price": 0.49,
+      "name": "Bagel",
+      "variant": "Everything",
+    },
+    {
+      "sku": "COF",
+      "price": 0.99,
+      "name": "Coffee",
+      "variant": "Coffee",
+    },
   ]
   module.exports = inventory;

@@ -266,5 +266,87 @@ describe("Basket", () => {
     //verify
     expect(result).toEqual(expected);
   });
+  it("Special Offer: 6 Onion Bagels should be £2.49", () => {
+    //setup 
+    const expected = 2.49
+    basket.basketSize = 6
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    //execute 
+    const result = basket.getTotalOfBasket()
+    //verify
+    expect(result).toEqual(expected);
+  });
+  it("Special Offer: 6 Everything Bagels should be £2.49", () => {
+    //setup 
+    const expected = 2.49
+    basket.basketSize = 6
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    //execute 
+    const result = basket.getTotalOfBasket()
+    //verify
+    expect(result).toEqual(expected);
+  });
+  it("Special Offer: 12 Plain Bagels should be £3.99", () => {
+    //setup 
+    const expected = 3.99
+    basket.basketSize = 12
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    //execute 
+    const result = basket.getTotalOfBasket()
+    //verify
+    expect(result).toEqual(expected);
+  });
+  it("Special Offer: 12 Plain Bagels should be £3.99", () => {
+    //setup 
+    const expected = 3.99
+    basket.basketSize = 12
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    //execute 
+    const result = basket.getTotalOfBasket()
+    //verify
+    expect(result).toEqual(expected);
+  });
+  it("Special Offer: 1 Plain Bagel and 1 Coffee should be £1.25", () => {
+    //setup 
+    const expected = 1.25
+    basket.addBagelToBasket("Coffee")
+    basket.addBagelToBasket("Plain")
+    //execute 
+    const result = basket.getTotalOfBasket()
+    //verify
+    expect(result).toEqual(expected);
+  });
 
 });
