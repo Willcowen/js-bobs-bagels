@@ -317,27 +317,6 @@ describe("Basket", () => {
     //verify
     expect(result).toEqual(expected);
   });
-  it("Special Offer: 12 Plain Bagels should be £3.99", () => {
-    //setup 
-    const expected = 3.99
-    basket.basketSize = 12
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    //execute 
-    const result = basket.getTotalOfBasket()
-    //verify
-    expect(result).toEqual(expected);
-  });
   it("Special Offer: 1 Plain Bagel and 1 Coffee should be £1.25", () => {
     //setup 
     const expected = 1.25

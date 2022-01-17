@@ -14,7 +14,8 @@ class Basket {
         return
       }
     }
-     return "Basket is full!";
+    return "Basket is full!"
+     
 
   }
   removeBagelFromBasket(type) {
@@ -40,7 +41,7 @@ class Basket {
   }
 
   getDiscount() {
-    let discount = 0
+    let discount = 0;
     const discountOnionArray = this.basket.filter(variant => variant["variant"] === "Onion")
     const everythingBagelArray = this.basket.filter(variant => variant["variant"] === "Everything")
     const plainBagelArray = this.basket.filter(variant => variant["variant"] === "Plain")
@@ -64,9 +65,7 @@ class Basket {
               return inventory[i]
           }
       }
-
   }
-
   getBasket() {
     return this.basket;
   }
