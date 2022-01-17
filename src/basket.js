@@ -45,15 +45,17 @@ class Basket {
     const discountOnionArray = this.basket.filter(variant => variant["variant"] === "Onion")
     const everythingBagelArray = this.basket.filter(variant => variant["variant"] === "Everything")
     const plainBagelArray = this.basket.filter(variant => variant["variant"] === "Plain")
-    const coffeeArray = this.basket.filter(variant => variant["variant"] === "Coffee")
-    if (discountOnionArray.length >= 6 || everythingBagelArray.length >= 6) {
-      discount = discount + 0.45
+    const discMultiplierOne = Math.trunc(discountOnionArray.length / 6)
+    const discMultiplierTwo = Math.trunc(everythingBagelArray.length / 6)
+    const discMultiplierThree = Math.trunc(plainBagelArray.length / 12)
+    if (discountOnionArray.length >= 6) {
+      discount = discount + (discMultiplierOne*0.45)
+    }
+    if (everythingBagelArray.length >= 6)  {
+      discount = discount + (discMultiplierTwo*0.45)
     }
     if (plainBagelArray.length >= 12) {
-      discount = discount + 0.69
-    }
-    if (coffeeArray.length >= 1 && plainBagelArray.length >= 1) {
-      discount = discount + 0.13
+      discount = discount + (discMultiplierThree*0.69)
     }
     return discount
   }

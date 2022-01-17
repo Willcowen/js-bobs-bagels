@@ -317,15 +317,61 @@ describe("Basket", () => {
     //verify
     expect(result).toEqual(expected);
   });
-  it("Special Offer: 1 Plain Bagel and 1 Coffee should be £1.25", () => {
+  it("Special Offer (WET CODE TO CHECK MUTLIPLE DISCOUNTS): 24 plain bagels (7.98) + 12 Onion Bagels (4.98) + 12 Everything Bagels (4.98)", () => {
     //setup 
-    const expected = 1.25
-    basket.addBagelToBasket("Coffee")
+    const expected = 7.98 + 4.98 + 4.98
+    basket.basketSize = 48
     basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Plain")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Onion")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
+    basket.addBagelToBasket("Everything")
     //execute 
     const result = basket.getTotalOfBasket()
     //verify
     expect(result).toEqual(expected);
   });
-
 });
