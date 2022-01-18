@@ -317,58 +317,19 @@ describe("Basket", () => {
     //verify
     expect(result).toEqual(expected);
   });
-  it("Special Offer (WET CODE TO CHECK MUTLIPLE DISCOUNTS): 24 plain bagels (7.98) + 12 Onion Bagels (4.98) + 12 Everything Bagels (4.98)", () => {
+  it("Special Offer: 24 plain bagels (7.98) + 12 Onion Bagels (4.98) + 12 Everything Bagels (4.98)", () => {
     //setup 
     const expected = 7.98 + 4.98 + 4.98
     basket.basketSize = 48
+    for (let i = 0; i < 24; i++) {
     basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Plain")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Onion")
-    basket.addBagelToBasket("Everything")
-    basket.addBagelToBasket("Everything")
-    basket.addBagelToBasket("Everything")
-    basket.addBagelToBasket("Everything")
-    basket.addBagelToBasket("Everything")
-    basket.addBagelToBasket("Everything")
-    basket.addBagelToBasket("Everything")
-    basket.addBagelToBasket("Everything")
-    basket.addBagelToBasket("Everything")
-    basket.addBagelToBasket("Everything")
-    basket.addBagelToBasket("Everything")
-    basket.addBagelToBasket("Everything")
+    }
+    for (let i = 0; i < 12; i++) {
+      basket.addBagelToBasket("Onion")
+    }
+    for (let i = 0; i < 12; i++) {
+      basket.addBagelToBasket("Everything")
+    }
     //execute 
     const result = basket.getTotalOfBasket()
     //verify

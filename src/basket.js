@@ -15,9 +15,8 @@ class Basket {
       }
     }
     return "Basket is full!"
-     
-
   }
+
   removeBagelFromBasket(type) {
     for (let i = 0; i < this.basket.length; i++) {
       const bagelToRemove = this.basket[i];
@@ -36,7 +35,6 @@ class Basket {
           count = count + bagelPrice
       }
       count = count - this.getDiscount()
-      
       return Number(count.toFixed(2))
   }
 
@@ -68,6 +66,7 @@ class Basket {
           }
       }
   }
+
   getBasket() {
     return this.basket;
   }
